@@ -1,8 +1,14 @@
 # 项目配置
 server:
-  port: 8080
+  port: 9081
   servlet:
     context-path: /wechat
+
+# spring
+spring:
+  # 静态资源目录配置
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/
 
 # 日志配置
 logging:
