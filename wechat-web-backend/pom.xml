@@ -104,19 +104,19 @@
         <!-- end: itchat.jar 依赖 -->
 
         <!-- 添加 itchat4j 依赖 -->
-        <!--<dependency>
+        <dependency>
             <groupId>cn.zhouyafeng</groupId>
             <artifactId>itchat4j</artifactId>
             <version>1.1.1</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/itchat4j-1.1.1.jar</systemPath>
-        </dependency>-->
-        <dependency>
+        </dependency>
+        <!--<dependency>
             <groupId>cn.zhouyafeng</groupId>
             <artifactId>itchat4j</artifactId>
             <version>1.1.1</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- 解析 yaml 的依赖 -->
         <dependency>
@@ -128,14 +128,57 @@
 
     <build>
         <plugins>
-            <plugin>
+
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <!-- fork: 如果没有该项配置,整个 devtools 不会起作用 -->
+                    &lt;!&ndash; fork: 如果没有该项配置,整个 devtools 不会起作用 &ndash;&gt;
                     <fork>true</fork>
                 </configuration>
+            </plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>indi.tudan.wechat.WechatWebBackendApplication</mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- 排除配置文件 -->
+                    <excludes>
+                        <exclude>*.yml</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-lib</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
