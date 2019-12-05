@@ -1,0 +1,9 @@
+# 项目配置
+server:
+  port: 8080
+  servlet:
+    context-path: /wechat
+
+# 日志配置
+logging:
+  config: classpath:logback-spring.xml

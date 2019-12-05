@@ -1,0 +1,4 @@
+# 微信配置
+wechat:
+  login:
+    qrPath: 'C:/Users/tudan/Desktop/wechat-files/itchat4j/login'
