@@ -10,6 +10,20 @@ package indi.tudan.wechat.service;
 public interface IWechatLogin {
 
     /**
+     * 获取 QR 码
+     *
+     * @date 2019-12-05 14:08:11
+     */
+    String getQR();
+
+    /**
+     * 删除 QR 码
+     *
+     * @date 2019-12-05 14:11:58
+     */
+    void deleteQR();
+
+    /**
      * 微信登录接口
      *
      * @date 2019-12-04 10:54:09

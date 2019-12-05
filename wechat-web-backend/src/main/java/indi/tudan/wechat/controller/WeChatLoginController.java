@@ -1,6 +1,7 @@
 package indi.tudan.wechat.controller;
 
 import cn.hutool.core.lang.Console;
+import cn.hutool.core.util.StrUtil;
 import cn.zhouyafeng.itchat4j.core.Core;
 import com.alibaba.fastjson.JSONObject;
 import indi.tudan.wechat.common.Const;
@@ -27,6 +28,25 @@ public class WeChatLoginController {
     private IWechatLogin iWechatLogin;
 
     /**
+     * 获取 QR 码
+     *
+     * @return 返回数据
+     * @date 2019-12-05 14:07:38
+     */
+    @GetMapping("getQR")
+    public JSONObject getQR() {
+        String qrData = iWechatLogin.getQR();
+        boolean showQR = StrUtil.isNotBlank(qrData);
+        return WebUtils.result(
+                new JSONObject()
+                        .fluentPut("showQR", showQR)
+                        .fluentPut("qrData", qrData)
+                        .fluentPut("isAlive", iWechatLogin.isAlive()),
+                Const.HttpStatus.OK.getStatus(),
+                showQR ? "获取成功。" : "获取失败。");
+    }
+
+    /**
      * 登录微信
      *
      * @return 返回信息
@@ -34,8 +54,15 @@ public class WeChatLoginController {
      */
     @GetMapping("login")
     public JSONObject login() {
+
+        // 登录
+        boolean success = iWechatLogin.login();
+
+        // 无论登录成功失败，都要删除临时登录 QR 码
+        iWechatLogin.deleteQR();
+
         return WebUtils.result(Const.HttpStatus.OK.getStatus(),
-                iWechatLogin.login() ? "登录成功。" : "登录失败。");
+                success ? "登录成功。" : "登录失败。");
     }
 
     /**
@@ -46,8 +73,15 @@ public class WeChatLoginController {
      */
     @GetMapping("logout")
     public JSONObject logout() {
+
+        // 退出
+        boolean success = iWechatLogin.logout();
+
+        // 删除 QR 码
+        iWechatLogin.deleteQR();
+
         return WebUtils.result(Const.HttpStatus.OK.getStatus(),
-                iWechatLogin.logout() ? "退出成功。" : "退出失败。");
+                success ? "退出成功。" : "退出失败。");
     }
 
     /**

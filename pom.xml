@@ -15,6 +15,7 @@
     <version>1.0</version>
     <modules>
         <module>wechat-web-backend</module>
+        <module>itchat4j</module>
     </modules>
 
 
