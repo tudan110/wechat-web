@@ -5,7 +5,7 @@ const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : co
 
 const HttpRequest = axios.create({
     baseURL: baseUrl,  // api的base_url
-    timeout: 5000  // 请求超时时间
+    timeout: 600000  // 请求超时时间
 });
 
 export default HttpRequest;

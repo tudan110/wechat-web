@@ -1,11 +1,15 @@
 # 项目配置
 server:
-  port: 9081
+  port: 9082
   servlet:
     context-path: /wechat
 
 # spring
 spring:
+  security:
+    user:
+      name: admin
+      password: 123456
   # 静态资源目录配置
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/

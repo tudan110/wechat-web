@@ -2,3 +2,4 @@
 wechat:
   login:
     qrPath: 'C:/Users/tudan/Desktop/wechat-web'
+#    qrPath: '/home/smart/app/wechat-web/qr'

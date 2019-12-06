@@ -75,6 +75,4 @@ public class DownloadTools {
         return null;
     }
 
-    ;
-
 }
