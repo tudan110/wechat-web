@@ -28,7 +28,7 @@ public class WeChatMessageController {
 
     /**
      * 根据用户名发送消息
-     * http://127.0.0.1:8080/wechat/send?userName={}&msg=测试，能收到消息嘛
+     * http://127.0.0.1:8080/wechat/msg/sendByUserName?userName={}&msg=测试，能收到消息嘛
      *
      * @param userName 用户名
      * @param msg      消息内容
@@ -44,7 +44,7 @@ public class WeChatMessageController {
 
     /**
      * 根据昵称发送消息
-     * http://127.0.0.1:8080/wechat/send?nickName={}&msg=测试，能收到消息嘛
+     * http://127.0.0.1:8080/wechat/msg/sendByNickName?nickName={}&msg=测试，能收到消息嘛
      *
      * @param nickName 昵称
      * @param msg      消息内容
@@ -60,7 +60,7 @@ public class WeChatMessageController {
 
     /**
      * 根据备注发送消息
-     * http://127.0.0.1:8080/wechat/send?remarkName={}&msg=测试，能收到消息嘛
+     * http://127.0.0.1:8080/wechat/msg/sendByRemarkName?remarkName={}&msg=测试，能收到消息嘛
      *
      * @param remarkName 备注
      * @param msg        消息内容
@@ -76,7 +76,7 @@ public class WeChatMessageController {
 
     /**
      * 根据群聊名称发送消息
-     * http://127.0.0.1:8080/wechat/send?groupName={}&msg=测试，能收到消息嘛
+     * http://127.0.0.1:8080/wechat/msg/sendByGroupName?groupName={}&msg=测试，能收到消息嘛
      *
      * @param groupName 群聊名称
      * @param msg       消息内容
