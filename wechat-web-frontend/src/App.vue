@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <HelloWorld msg="Welcome to wechat-web" />
   </div>
 </template>
@@ -17,13 +16,26 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: wrap;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: url(./assets/bg.jpg) no-repeat;
+  background-size: cover;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ::-webkit-scrollbar-track-piece {

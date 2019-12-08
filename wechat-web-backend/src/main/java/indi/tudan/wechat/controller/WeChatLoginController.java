@@ -61,7 +61,9 @@ public class WeChatLoginController {
         // 无论登录成功失败，都要删除临时登录 QR 码
         iWechatLogin.deleteQR();
 
-        return WebUtils.result(Const.HttpStatus.OK.getStatus(),
+        return WebUtils.result(
+                new JSONObject().fluentPut("isAlive", success),
+                Const.HttpStatus.OK.getStatus(),
                 success ? "登录成功。" : "登录失败。");
     }
 

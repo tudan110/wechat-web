@@ -15,8 +15,9 @@
       </div>
     </div>
     <ul>
-      <img v-show="!showQR || isAlive" alt="default" src="../assets/default.jpg" />
+      <img v-show="!showQR && !isAlive" alt="default" src="../assets/default.jpg" />
       <img v-show="showQR && !isAlive" alt="login" :src="qrData" />
+      <img v-show="isAlive" alt="success" src="../assets/success.png" />
     </ul>
   </div>
 </template>
@@ -32,16 +33,24 @@ export default {
       showQR: false,
       qrData: "data:image/jpeg;base64,",
       isAlive: false,
-      info: ""
+      info: "",
+      timer: null
     }
   },
   props: {
     msg: String
   },
+  mounted() {
+    this.login();
+    this.getQRInterval();
+
+  },
   methods: {
     login() {
       login.login().then(res => {
+        debugger
         this.info = res.data.info;
+        this.isAlive = res.data.data.isAlive;
       });
     },
     getQR() {
@@ -50,19 +59,17 @@ export default {
         this.qrData = res.data.data.qrData;
         this.isAlive = res.data.data.isAlive;
         this.firstLogin = false;
+
+        if (this.showQR) {
+          clearInterval(this.timer);
+        }
       });
     },
     getQRInterval() {
-      while(!this.showQR) {
+      this.timer = setInterval(() => {
         this.getQR();
-      }
+      }, 100);
     }
-  },
-  mounted() {
-    this.login();
-    setTimeout(() => {
-      this.getQRInterval();
-    }, 3000);
   }
 }
 </script>
