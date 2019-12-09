@@ -4,6 +4,21 @@ server:
   servlet:
     context-path: /wechat
 
+schedule:
+  msg:
+    receiver: filehelper
+    text: '定时发送消息，防止掉线。'
+  # 初始延迟配置
+  initialDelayString:
+    # 扫描预警结果任务延迟时间：1 秒
+    send-msg: 1000
+  # 定时周期配置（不阻塞）
+  fixedRateString:
+    # 测试定时器
+    test: 5000
+    # 扫描预警结果任务周期：20 分钟
+    send-msg: 1200000
+
 # spring
 spring:
   security:

@@ -68,7 +68,7 @@ public class WeChatLoginController {
     }
 
     /**
-     * 退出微信
+     * 退出微信，调用此接口后，1 - 2 分钟，微信状态才会变更
      *
      * @return 返回信息
      * @date 2019-12-04 15:57:21

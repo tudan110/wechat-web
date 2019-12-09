@@ -1,6 +1,6 @@
 # 微信配置
 wechat:
   login:
-    #qrPath: 'C:/Users/tudan/Desktop/wechat-web'
-    qrPath: 'C:/Users/wtuda/Desktop/wechat-web'
+    qrPath: 'C:/Users/tudan/Desktop/wechat-web'
+#    qrPath: 'C:/Users/wtuda/Desktop/wechat-web'
 #    qrPath: '/home/smart/app/wechat-web/qr'
