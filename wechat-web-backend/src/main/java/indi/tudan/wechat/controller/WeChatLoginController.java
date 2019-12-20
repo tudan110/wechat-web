@@ -83,7 +83,7 @@ public class WeChatLoginController {
         iWechatLogin.deleteQR();
 
         return WebUtils.result(Const.HttpStatus.OK.getStatus(),
-                success ? "退出成功。" : "退出失败。");
+                success ? "退出成功，1 - 2 分钟后，微信状态才会变更，请耐心等待。" : "退出失败。");
     }
 
     /**
