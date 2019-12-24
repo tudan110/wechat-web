@@ -103,6 +103,24 @@ public class WechatTools {
     }
 
     /**
+     * 根据用户名获取备注
+     *
+     * @param userName 用户名
+     * @return 返回用户名
+     * @author wangtan
+     * @date 2019-12-24 17:09:22
+     * @since 1.0
+     */
+    public static String getRemarkNameByUserName(String userName) {
+        for (JSONObject o : core.getContactList()) {
+            if (o.getString("UserName").equals(userName)) {
+                return o.getString("RemarkName");
+            }
+        }
+        return null;
+    }
+
+    /**
      * 返回好友昵称列表
      *
      * @return
