@@ -15,6 +15,11 @@ public class Const {
     public static final String RELEASE_MODE = "release";
 
     /**
+     * null 字符串
+     */
+    public static final String NULL = "null";
+
+    /**
      * Http 状态
      *
      * @date 2019-12-04 10:11:05

@@ -2,7 +2,6 @@ package indi.tudan.wechat.handler;
 
 import cn.zhouyafeng.itchat4j.beans.BaseMsg;
 import cn.zhouyafeng.itchat4j.face.IMsgHandlerFace;
-import com.alibaba.fastjson.JSONObject;
 
 /**
  * 微信消息处理

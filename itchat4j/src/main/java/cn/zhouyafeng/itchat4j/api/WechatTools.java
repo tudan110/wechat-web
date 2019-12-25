@@ -106,7 +106,7 @@ public class WechatTools {
      * 根据用户名获取备注
      *
      * @param userName 用户名
-     * @return 返回用户名
+     * @return 返回备注名称
      * @author wangtan
      * @date 2019-12-24 17:09:22
      * @since 1.0
@@ -115,6 +115,24 @@ public class WechatTools {
         for (JSONObject o : core.getContactList()) {
             if (o.getString("UserName").equals(userName)) {
                 return o.getString("RemarkName");
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 根据用户名获取备注
+     *
+     * @param groupName 群名
+     * @return 返回群昵称
+     * @author wangtan
+     * @date 2019-12-25 10:11:05
+     * @since 1.0
+     */
+    public static String getGroupNickNameByUserName(String groupName) {
+        for (JSONObject o : core.getGroupList()) {
+            if (o.getString("UserName").equals(groupName)) {
+                return o.getString("NickName");
             }
         }
         return null;
