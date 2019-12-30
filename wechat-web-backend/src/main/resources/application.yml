@@ -7,16 +7,16 @@ server:
 schedule:
   msg:
     receiver: filehelper
-    text: '定时发送消息，防止掉线。'
+    text: '您的微信后台服务 wechat-web 运行正常。'
   # 初始延迟配置
   initialDelayString:
-    # 扫描预警结果任务延迟时间：1 秒
+    # 微信在线提醒任务延迟时间：1 秒
     send-msg: 1000
   # 定时周期配置（不阻塞）
   fixedRateString:
     # 测试定时器
     test: 5000
-    # 扫描预警结果任务周期：20 分钟
+    # 微信在线提醒任务周期：20 分钟
     send-msg: 1200000
 
 # spring
