@@ -9,14 +9,14 @@
 
 # 问候语
 [greetings]
-welcome=🙂欢迎使用土旦的机器人🙂
-bye=🙂您已关闭土旦的机器人🙂
+welcome=😊欢迎使用土旦的机器人😊
+bye=😊您已关闭土旦的机器人😊
 
 # 帮助
 [help]
 common1=您好，土旦的机器人预置命令如下：
-common2=robot-enable robot-on robot-start\t启用机器人
-common3=robot-disable robot-off robot-stop\t停用机器人
+common2=robot-enable或robot-on或robot-start 启用机器人
+common3=robot-disable或robot-off或robot-stop 停用机器人
 
 # 调度
 [control]
