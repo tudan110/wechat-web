@@ -25,7 +25,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
 import java.io.File;
@@ -42,7 +41,6 @@ import java.util.regex.Matcher;
  * @version 1.0
  * @date 创建时间：2017年5月13日 上午12:09:35
  */
-@Service
 public class LoginServiceImpl implements ILoginService {
     private static Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class);
 

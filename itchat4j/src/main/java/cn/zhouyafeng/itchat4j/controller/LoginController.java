@@ -9,7 +9,6 @@ import cn.zhouyafeng.itchat4j.utils.SleepUtils;
 import cn.zhouyafeng.itchat4j.utils.tools.CommonTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 
 /**
  * 登录控制器
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Controller;
  * @version 1.0
  * @date 创建时间：2017年5月13日 下午12:56:07
  */
-@Controller
 public class LoginController {
     private static Logger LOG = LoggerFactory.getLogger(LoginController.class);
     private static Core core = Core.getInstance();

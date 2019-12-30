@@ -34,12 +34,12 @@ public class Core {
     private String userName;
     private String nickName;
     private List<BaseMsg> msgList = new ArrayList<BaseMsg>();
-    ; // 群
+    // 群
     private JSONObject userSelf; // 登录账号自身信息
     private List<JSONObject> memberList = new ArrayList<JSONObject>(); // 好友+群聊+公众号+特殊账号
-    ;// 公众号／服务号
+    // 公众号／服务号
     private List<JSONObject> contactList = new ArrayList<JSONObject>();// 好友
-    ;// 特殊账号
+    // 特殊账号
     private List<JSONObject> groupList = new ArrayList<JSONObject>();
     private Map<String, JSONArray> groupMemeberMap = new HashMap<String, JSONArray>(); // 群聊成员字典
     private List<JSONObject> publicUsersList = new ArrayList<JSONObject>();
@@ -48,6 +48,7 @@ public class Core {
     private List<String> groupNickNameList = new ArrayList<String>(); // 群NickName列表
     private Map<String, JSONObject> userInfoMap = new HashMap<String, JSONObject>();
     private long lastNormalRetcodeTime; // 最后一次收到正常retcode的时间，秒为单位
+
     private Core() {
 
     }
