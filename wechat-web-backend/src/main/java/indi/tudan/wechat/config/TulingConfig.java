@@ -9,7 +9,9 @@ import cn.zhouyafeng.itchat4j.core.Core;
 import indi.tudan.wechat.common.Const;
 import indi.tudan.wechat.utils.SettingUtils;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 图灵配置类
@@ -89,27 +91,27 @@ public class TulingConfig {
     }
 
     /**
-     * 获取群聊白名单
-     *
-     * @return 群聊白名单
-     * @date 2019-12-30 09:37:33
-     * @since 1.0
-     */
-    public static List<String> getGroupsWhitelist() {
-        return StrSpliter.split(setting.getByGroup("groups", "whitelist"),
-                ',', 0, true, true);
-    }
-
-    /**
      * 获取好友白名单
      *
      * @return 好友白名单
      * @date 2019-12-30 09:36:57
      * @since 1.0
      */
-    public static List<String> getFriendsWhitelist() {
-        return StrSpliter.split(setting.getByGroup("friends", "whitelist"),
-                ',', 0, true, true);
+    public static Set<String> getFriendsWhitelist() {
+        return new HashSet<>(StrSpliter.split(setting.getByGroup("friends", "whitelist"),
+                ',', 0, true, true));
+    }
+
+    /**
+     * 获取群聊白名单
+     *
+     * @return 群聊白名单
+     * @date 2019-12-30 09:37:33
+     * @since 1.0
+     */
+    public static Set<String> getGroupsWhitelist() {
+        return new HashSet<>(StrSpliter.split(setting.getByGroup("groups", "whitelist"),
+                ',', 0, true, true));
     }
 
     /**
@@ -125,10 +127,10 @@ public class TulingConfig {
         String result = "";
 
         // 好友白名单
-        List<String> friendsWhitelist = getFriendsWhitelist();
+        Set<String> friendsWhitelist = getFriendsWhitelist();
 
         // 群聊白名单
-        List<String> groupsWhitelist = getGroupsWhitelist();
+        Set<String> groupsWhitelist = getGroupsWhitelist();
 
         // 匹配到启用指令，且当前用户不在白名单里
         if (getEnableCommands().contains(msg.getText().trim()) && (isNotInWhitelist(msg) || isAdmin(msg))) {
