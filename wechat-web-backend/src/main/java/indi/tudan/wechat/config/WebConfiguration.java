@@ -1,6 +1,7 @@
 package indi.tudan.wechat.config;
 
 import indi.tudan.wechat.common.yaml.WechatYaml;
+import indi.tudan.wechat.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -24,7 +25,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
         // 以二维码所在系统目录为资源目录
-        registry.addResourceHandler("/image/**").addResourceLocations(wechatYaml.getLogin().getQrPath());
+        registry.addResourceHandler("/image/**").addResourceLocations(FileUtils.getQrPath());
     }
 
     /**

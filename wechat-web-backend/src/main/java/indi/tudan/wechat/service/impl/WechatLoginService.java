@@ -7,6 +7,7 @@ import cn.zhouyafeng.itchat4j.api.WechatTools;
 import indi.tudan.wechat.common.yaml.WechatYaml;
 import indi.tudan.wechat.handler.WeChatMessageHandler;
 import indi.tudan.wechat.service.IWechatLogin;
+import indi.tudan.wechat.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,8 @@ public class WechatLoginService implements IWechatLogin {
      */
     @Override
     public String getQR() {
-        String qrPath = wechatYaml.getLogin().getQrPath() + "/QR.jpg";
+        //String qrPath = wechatYaml.getLogin().getQrPath() + "/QR.jpg";
+        String qrPath = FileUtils.getQrPath() + "/QR.jpg";
         if (FileUtil.exist(qrPath)) {
             return "data:image/jpeg;base64," + Base64.encode(new File(qrPath));
         }
@@ -48,7 +50,8 @@ public class WechatLoginService implements IWechatLogin {
      */
     @Override
     public void deleteQR() {
-        FileUtil.del(wechatYaml.getLogin().getQrPath() + "/QR.jpg");
+        //FileUtil.del(wechatYaml.getLogin().getQrPath() + "/QR.jpg");
+        FileUtil.del(FileUtils.getQrPath() + "/QR.jpg");
     }
 
     /**
@@ -59,8 +62,8 @@ public class WechatLoginService implements IWechatLogin {
     @Override
     public boolean login() {
         try {
-            new Wechat(new WeChatMessageHandler(), wechatYaml.getLogin().getQrPath())
-                    .start();
+            //new Wechat(new WeChatMessageHandler(), wechatYaml.getLogin().getQrPath()).start();
+            new Wechat(new WeChatMessageHandler(), FileUtils.getQrPath()).start();
             return true;
         } catch (Exception e) {
             log.error("登录失败。", e);

@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import indi.tudan.wechat.config.TulingConfig;
+import indi.tudan.wechat.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class TulingRobot implements IMsgHandlerFace {
 
     public static void main(String[] args) {
         IMsgHandlerFace msgHandler = new TulingRobot();
-        Wechat wechat = new Wechat(msgHandler, "C:/Users/tudan/Desktop/wechat-web");
+        Wechat wechat = new Wechat(msgHandler, FileUtils.getQrPath());
         wechat.start();
     }
 

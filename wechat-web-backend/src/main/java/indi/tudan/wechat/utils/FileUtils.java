@@ -1,5 +1,7 @@
 package indi.tudan.wechat.utils;
 
+import cn.hutool.core.io.FileUtil;
+
 import java.io.File;
 import java.nio.file.Paths;
 
@@ -85,5 +87,20 @@ public class FileUtils {
         } else {
             return false;
         }
+    }
+
+    /**
+     * 获取二维码路径
+     *
+     * @return 路径
+     * @date 2019-12-30 13:47:13
+     * @since 1.0
+     */
+    public static String getQrPath() {
+        String qrPath = ClassUtils.getCurrentProgramPath() + "/qr";
+        if (!FileUtil.exist(qrPath)) {
+            FileUtil.mkdir(qrPath);
+        }
+        return qrPath;
     }
 }
