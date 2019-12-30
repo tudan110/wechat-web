@@ -7,6 +7,24 @@
 # [] 代表分组，请不要修改，否则程序将获取不到对应的配置项
 
 
+# 问候语
+[greetings]
+welcome=🙂欢迎使用土旦的机器人🙂
+bye=🙂您已关闭土旦的机器人🙂
+
+# 帮助
+[help]
+common1=您好，土旦的机器人预置命令如下：
+common2=robot-enable robot-on robot-start\t启用机器人
+common3=robot-disable robot-off robot-stop\t停用机器人
+
+# 调度
+[control]
+# 启用，添加用户或群聊到白名单中
+enable=robot-enable,robot-on,robot-start
+# 停用，从白名单中移除用户或群聊
+disable=robot-disable,robot-off,robot-stop
+
 # 图灵接口配置
 [api]
 # 接口地址
@@ -19,6 +37,6 @@ userId=538498
 # 白名单
 [whitelist]
 # 好友
-friends=小蓝鲸,李进哥,沈伟乾
+friends=
 # 群聊
-groups=爱国思想教育,小星星
+groups=

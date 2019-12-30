@@ -13,6 +13,14 @@ import cn.hutool.setting.Setting;
  */
 public class SettingUtils {
 
+    /**
+     * 配置文件路径
+     */
+    public static String settingFilePath = "";
+
+    /**
+     * 配置实例
+     */
     private Setting setting = init();
 
     /**
@@ -40,16 +48,20 @@ public class SettingUtils {
      */
     public static Setting init() {
 
+        String defaultPath = "config/tuling.setting";
+
         Setting setting;
 
-        String settingPath = ClassUtils.getCurrentProgramPath() + "/config/tuling.setting";
+        String settingPath = ClassUtils.getCurrentProgramPath() + defaultPath;
 
         // 若程序文件不存在，则使用默认配置文件
         if (!FileUtils.isFileExists(settingPath)) {
             StaticLog.info("tuling.setting is not exists, and then, this program will use default settings.");
-            setting = new Setting("config/tuling.setting");
+            setting = new Setting(defaultPath);
+            settingFilePath = defaultPath;
         } else {
             setting = new Setting(settingPath);
+            settingFilePath = settingPath;
         }
 
         // 在配置文件变更时自动加载
@@ -75,8 +87,10 @@ public class SettingUtils {
         if (!FileUtils.isFileExists(settingPath)) {
             StaticLog.info("setting is not exists, and then, this program will use default settings.");
             setting = new Setting(defaultPath);
+            settingFilePath = defaultPath;
         } else {
             setting = new Setting(settingPath, CharsetUtil.CHARSET_UTF_8, true);
+            settingFilePath = settingPath;
         }
 
         // 在配置文件变更时自动加载
